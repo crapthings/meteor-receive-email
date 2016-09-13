@@ -1,0 +1,36 @@
+<body>
+  <div class='padded'>
+    {{> sender}}
+    <h3 class='mgb padded bordered-bottom'>Mails list</h3>
+    {{#each mails}}
+      <div class='mgb padded bordered-bottom'>
+        <p>from: {{from}}</p>
+        <p>to: {{to}}</p>
+        <p>subject: {{subject}}</p>
+        <p>text: {{text}}</p>
+      </div>
+    {{else}}
+      <p>empty</p>
+    {{/each}}
+  </div>
+</body>
+
+<template name='sender'>
+  <form class='mgb'>
+    <div>
+      <input type='text' name='from' placeholder='from' value='crapthings@gmail.com'>
+    </div>
+    <div>
+      <input type='text' name='to' placeholder='to' value='monsterstep@gmail.com'>
+    </div>
+    <div>
+      <input type='text' id='data-subject' name='subject' placeholder='subject' value='{{subject}}'>
+    </div>
+    <div>
+      <textarea rows='3' id='data-text' name='text' placeholder='text'>{{text}}</textarea>
+    </div>
+    <div>
+      <input type='submit' value='send'>
+    </div>
+  </form>
+</template>
